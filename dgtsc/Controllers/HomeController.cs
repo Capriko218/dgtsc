@@ -13,7 +13,7 @@ namespace dgtsc.Controllers
         // GET: Home
         public ActionResult Index(int id)
         {
-            var m = new HomeIndexView();
+            var m = new HomeIndexView_Model();
 			//m.Players = new List<PlayerClass>
 			//{
 			//    new PlayerClass { FirstName = "Colby", LastName = "Slaybaugh" },
@@ -24,12 +24,12 @@ namespace dgtsc.Controllers
 
 			var players = PlayersDB.GetPlayersByGame(id);
 
-			m.Players = players.Select(x => new PlayerClass
+			m.Players = players.Select(x => new PlayerClass_Model
 			{
 				FirstName = x.Name
 			}).ToList();
 
-            return View("index", m);
+            return View("index_view", m);
         }
     }
 }

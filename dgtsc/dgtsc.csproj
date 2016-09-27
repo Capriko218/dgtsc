@@ -135,8 +135,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\HomeIndexView.cs" />
-    <Compile Include="Models\PlayerClass.cs" />
+    <Compile Include="Models\HomeIndexView_Model.cs" />
+    <Compile Include="Models\PlayerClass_Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -145,7 +145,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Index_View.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace dgtsc.Models
 {
-    public class PlayerClass
+    public class PlayerClass_Model
     {
         public string FirstName { get; set;}
         public string LastName { get; set; }

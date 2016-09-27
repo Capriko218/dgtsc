@@ -52,14 +52,14 @@ namespace dgtsc.Data
 		{
 			try
 			{
-				using (var cn = new SqlConnection(ConfigurationManager.ConnectionStrings[0].ConnectionString))
+				using (var cn = new SqlConnection(ConfigurationManager.ConnectionStrings["dgtscsql"].ConnectionString))
 				{
 					cn.Open();
 
 					var p = new DynamicParameters();
 					p.Add("@gameId", gameId);
 
-					var sql = @"SELECT Players.PlayerId, Players.GameId, PlayerName, Players.PartnerPlayerId, p2.PlayerName AS PartnerName
+					var sql = @"SELECT Players.PlayerId, Players.GameId, Players.PlayerName, Players.PartnerPlayerId, p2.PlayerName AS PartnerName
 								FROM Players
 									LEFT OUTER JOIN Players p2 ON p2.PlayerId = Players.PartnerPlayerId
 								WHERE Players.GameId=@gameId

@@ -5,8 +5,8 @@ using System.Web;
 
 namespace dgtsc.Models
 {
-    public class HomeIndexView
+    public class HomeIndexView_Model
     {
-        public List<PlayerClass> Players { get; set; }
+        public List<PlayerClass_Model> Players { get; set; }
     }
 }
