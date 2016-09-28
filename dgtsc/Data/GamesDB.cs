@@ -27,7 +27,7 @@ namespace dgtsc.Data
 									JoinCode, Games.OwnerAccountId, AccountFirst, AccountLast, GameDateTime,
 									GameRound
 								FROM Games
-									INNER JOIN Locations ON Locations.LocationId=Games.GameId
+									INNER JOIN Locations ON Locations.LocationId=Games.LocationId
 									LEFT OUTER JOIN Accounts ON Accounts.AccountId=Games.OwnerAccountId
 								WHERE Games.GameId=@GameId;";
 
