@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ConerySugar">
+      <HintPath>..\libs\ConerySugar.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
       <Private>True</Private>
@@ -124,12 +127,16 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Code\Extensions.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\Models\GameItem.cs" />
+    <Compile Include="Data\GamesDB.cs" />
     <Compile Include="Data\Models\PlayerItem.cs" />
     <Compile Include="Data\PlayersDB.cs" />
     <Compile Include="Global.asax.cs">
