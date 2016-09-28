@@ -24,7 +24,8 @@ namespace dgtsc.Data
 
 					var sql = @"SELECT Games.GameId, GameName, Games.LocationId, LocationName, LocationStreet1,
 									LocationStreet2, LocationCity, LocationRegion, LocationCountry, LocationPostal,
-									JoinCode, Games.OwnerAccountId, Accounts.FirstName, Accounts.LastName
+									JoinCode, Games.OwnerAccountId, AccountFirst, AccountLast, GameDateTime,
+									GameRound
 								FROM Games
 									INNER JOIN Locations ON Locations.LocationId=Games.GameId
 									LEFT OUTER JOIN Accounts ON Accounts.AccountId=Games.OwnerAccountId
@@ -36,6 +37,8 @@ namespace dgtsc.Data
 					{
 						Id = x.GameId,
 						Name = x.GameName,
+						Round = x.GameRound,
+						GameDateTime = x.GameDateTime,
 						LocationId = x.LocationId,
 						LocationName = x.LocationName,
 						LocationStreet1 = x.LocationStreet1,
@@ -45,8 +48,8 @@ namespace dgtsc.Data
 						LocationCountry = x.LocationCountry,
 						JoinCode = x.JoinCode,
 						OwnerAccountId = x.OwnerAccountId,
-						OwnerFirstName = x.FirstName,
-						OwnerLastName = x.LastName
+						OwnerFirstName = x.AccountFirst,
+						OwnerLastName = x.AccountLast
 					}).FirstOrDefault();
 
 				}

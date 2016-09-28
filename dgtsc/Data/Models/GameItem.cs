@@ -9,6 +9,8 @@ namespace dgtsc.Data.Models
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
+		public int Round { get; set; }
+		public DateTime GameDateTime { get; set; }
 
 		public int LocationId { get; set; }
 		public string LocationName { get; set; }
