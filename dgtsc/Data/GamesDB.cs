@@ -59,5 +59,30 @@ namespace dgtsc.Data
 				return null;
 			}
 		}
+
+		public static int AddPlayer(int gameId, string playerName)
+		{
+			try
+			{
+				using (var cn = new SqlConnection(ConfigurationManager.ConnectionStrings["dgtscsql"].ConnectionString))
+				{
+					cn.Open();
+
+					var p = new DynamicParameters();
+					p.Add("@gameId", gameId);
+					p.Add("@playerName", playerName);
+
+					var sql = @"INSERT INTO Players(GameId, PlayerName) VALUES (@GameId, @PlayerName);";
+
+					var res = cn.Execute(sql, p);
+
+					return res;
+				}
+			}
+			catch (Exception)
+			{
+				return 0;
+			}
+		}
 	}
 }
