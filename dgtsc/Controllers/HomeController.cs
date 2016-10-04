@@ -35,7 +35,31 @@ namespace dgtsc.Controllers
         [HttpPost]
         public ActionResult Index(HomeIndexView_Model m)
         {
+            try
+            {
+                if (!ModelState.IsValid) throw new Exception("");
 
+                var res = GamesDB.AddPlayer(m.GameId, m.PlayerName);
+                if (res != 1) throw new Exception("Unable to add player.");
+                
+                ModelState.Remove("PlayerName");       
+            }
+            catch (Exception ex)
+            {
+                m.Error = ex.Message;
+            }
+
+            BuildModel(ref m);
+            return View("Index_View", m);
+        }
+
+        private void BuildModel(ref HomeIndexView_Model m)
+        {
+            var players = PlayersDB.GetPlayersByGame(m.GameId);
+            m.Players = players.Select(x => new PlayerClass_Model
+            {
+                FirstName = x.Name
+            }).ToList();
         }
     }
 }
